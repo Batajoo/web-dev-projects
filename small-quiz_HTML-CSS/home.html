@@ -8,17 +8,30 @@
 </head>
 <body>
     <header>
-        <div><span>freeCodeCamp</span><span>HTML/CSS Quiz</span><span>INFO HTML CSS</span></div>
+        <div>
+            <span>freeCodeCamp</span>
+            <span class="flex-column">
+                <span>HTML/CSS</span>
+                <span>Quiz</span>
+            </span>
+            <span class="links">
+                <span><a href="#info">INFO</a></span>
+                <span><a href="#html">HTML</a></span>
+                <span><a href="#css">CSS</a></span>
+            </span>
+        </div>
     </header>
     <form>
-        <h1>Student Info</h1>
+        <div class="info">
+        <h1 id="info">Student Info</h1>
         <fieldset>
             <label>Name: <input type="text"></label>
             <label>Email: <input type="email"></label>
             <label>Date of Birth: <input type="date"></label>
         </fieldset>
+        </div>
         <div>
-            <h1>HTML</h1>
+            <h1 id="html">HTML</h1>
             <fieldset>
                 <div>
                     <h2>Question #1</h2>
@@ -35,7 +48,7 @@
             </fieldset>
         </div>
         <div>
-            <h1>CSS</h1>
+            <h1 id="css">CSS</h1>
             <fieldset>
                 <div>
                     <label>Can the CSS margin property accepts negative values?</label>

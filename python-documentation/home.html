@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Documentation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav id="navbar">
+    <header>Python Documentation</header>
+    <a href="#introduction" class="nav-link">Introduction</a>
+    <a href="#getting_started" class="nav-link">Getting Started</a>
+    <a href="#basic_syntax" class="nav-link">Basic Syntax</a>
+    <a href="#data_types" class="nav-link">Data Types</a>
+    <a href="#control_flow" class="nav-link">Control Flow</a>
+    <a href="#functions" class="nav-link">Functions</a>
+    <a href="#object_oriented_programming" class="nav-link">Object Oriented Programming</a>
+    <a href="#modules_and_packages" class="nav-link">Modules and Packages</a>
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="introduction">
+      <header>Introduction</header>
+      <p>Python is a high-level, interpreted programming language known for its simplicity and readability. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming.
+      </p>
+      <p>
+Created by Guido van Rossum and released in 1991, Python has become one of the most popular programming languages worldwide, especially in areas such as data science, artificial intelligence, and web development.
+      </p>
+      <p>
+Python's philosophy emphasizes code readability with its notable use of significant whitespace. The language provides constructs that enable clear programming on both small and large scales.
+      </p>
+      <ul>
+        <li>Easy to learn and use</li>
+        <li>Extensive standard library</li>
+        <li>Large and active community</li>
+        <li>Cross-platform compatibility</li>
+        <li>Rich ecosystem of third-party packages</li>  
+      </ul>
+    </section>
+    <section class="main-section" id="getting_started">
+      <header >Getting Started</header>
+      <p>To begin programming in Python, you'll need to install Python on your computer. The latest version is recommended for new projects.
+      </p>
+      <p>
+Visit python.org to download the latest version of Python for your operating system. During installation on Windows, make sure to check "Add Python to PATH".
+      </p>
+      <div class="code">
+      <code># Check Python version
+python --version
+
+# Start Python interpreter
+python</code>
+      </div>
+      <p>After installation, you can run Python in multiple ways:</p>
+      <ul>
+        <li>Interactive shell (REPL) - Great for testing quick commands</li>
+        <li>Running .py files - For actual programs</li>
+        <li>Jupyter notebooks - Perfect for data science</li>
+        <li>IDE integration - For larger projects</li>
+      </ul>
+      <p>It's recommended to use a code editor or IDE for Python development. Popular choices include:</p>
+      <ul>
+        <li>Visual Studio Code</li>
+        <li>PyCharm</li>
+        <li>Sublime Text</li>
+    </section>
+    <section class="main-section" id="basic_syntax">
+      <header >Basic Syntax</header>
+      <p>Python syntax is designed to be clean and readable. Unlike many other programming languages, Python uses indentation to define code blocks.</p>
+      <p>Here are the fundamental syntax rules:</p>
+      <div class="code">
+      <code># This is a comment
+print("Hello, World!")  # This is an inline comment
+
+# Variables and assignment
+name = "Python"
+age = 30
+is_awesome = True
+
+# Multiple assignment
+x, y, z = 1, 2, 3
+
+# Indentation for code blocks
+if True:
+    print("This is indented")
+    if True:
+        print("This is nested")</code>
+        <p>Basic operators in Python:</p>
+        <code># Arithmetic operators
+sum = 10 + 5  # Addition
+diff = 10 - 5  # Subtraction
+product = 10 * 5  # Multiplication
+quotient = 10 / 5  # Division
+floor_div = 10 // 3  # Floor division
+modulus = 10 % 3  # Modulus
+power = 2 ** 3  # Exponentiation
+
+# Comparison operators
+x = 5
+print(x < 10)   # Less than
+print(x > 3)    # Greater than
+print(x <= 5)   # Less than or equal
+print(x >= 5)   # Greater than or equal
+print(x == 5)   # Equal to
+print(x != 7)   # Not equal to</code>
+    </div>
+    <ul>
+      <li>Python is case-sensitive</li>
+      <li>Statements end with a newline</li>
+      <li>Use four spaces for indentation (standard)</li>
+      <li>Maximum line length is 79 characters (PEP 8)</li>
+      <li>Use backslash (\) for line continuation</li>
+    </ul>
+    </section>
+    <section class="main-section" id="data_types">
+      <header>Data Types</header>
+      <p>Python has several built-in data types to handle different kinds of data. Understanding these types is crucial for effective programming.</p>
+      <p>Here are the main data types in Python:</p>
+      <div class="code">
+      <code># Numbers
+integer = 42
+float_num = 3.14
+complex_num = 1 + 2j
+
+# Strings
+single_quotes = 'Hello'
+double_quotes = "World"
+multi_line = """This is a
+multi-line string"""
+
+# Lists (mutable)
+numbers = [1, 2, 3, 4, 5]
+mixed = [1, "hello", 3.14, True]
+nested = [1, [2, 3], 4]
+
+# Tuples (immutable)
+coordinates = (10, 20)
+singleton = (1,)
+
+# Dictionaries
+person = {
+    "name": "John",
+    "age": 30,
+    "city": "New York"
+}
+
+# Sets
+unique_numbers = {1, 2, 3, 4, 5}</code>
+      </div>
+      <p>Common operations with data types:</p>
+      <div class="code">
+      <code># String operations
+text = "Python"
+print(len(text))          # Length
+print(text.upper())       # Uppercase
+print(text.lower())       # Lowercase
+print(text[0])           # Indexing
+print(text[1:4])         # Slicing
+
+# List operations
+numbers = [1, 2, 3, 4, 5]
+numbers.append(6)         # Add element
+numbers.remove(3)         # Remove element
+numbers.sort()           # Sort list
+numbers.reverse()        # Reverse list</code>
+    </div>
+    </section>
+    <section class="main-section" id="control_flow">
+      <header>Control Flow</header>
+      <p>Control flow statements determine the order in which program code executes. Python provides several control flow tools for decision-making and iteration.</p>
+      <p>Conditional Statements:</p>
+      <div class="code">
+      <code># If-elif-else statement
+age = 18
+
+if age < 13:
+    print("Child")
+elif age < 20:
+    print("Teenager")
+else:
+    print("Adult")
+
+# Ternary operator
+status = "Adult" if age >= 18 else "Minor"</code>
+      </div>
+      <p>Loops for iterations:</p>
+      <div class="code">
+      <code># For loop with range
+for i in range(5):
+    print(i)
+
+# For loop with list
+fruits = ["apple", "banana", "orange"]
+for fruit in fruits:
+    print(fruit)
+
+# While loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+# Loop control
+for i in range(10):
+    if i == 3:
+        continue    # Skip this iteration
+    if i == 8:
+        break       # Exit loop
+    print(i)</code>
+    </div>
+    <p>Advanced control flow features:</p>
+    <ul>
+      <li>List comprehensions</li>
+      <li>Generator expressions</li>
+      <li>Context managers (with statement)</li>
+      <li>Match statements (Python 3.10+)</li>
+    </ul>
+    </section>
+    <section class="main-section" id="functions">
+      <header >Functions</header>
+      <p>Functions are blocks of reusable code that perform a specific task. Python provides several ways to define and use functions.</p>
+      <p>Basic function definition and usage:</p>
+      <div class="code">
+      <code># Simple function
+def greet(name):
+    return f"Hello, {name}!"
+
+# Function with default parameters
+def power(base, exponent=2):
+    return base ** exponent
+
+# Function with multiple returns
+def divide(a, b):
+    if b == 0:
+        return None
+    return a / b
+
+# Lambda function (anonymous function)
+square = lambda x: x ** 2</code>
+      <p>Advanced function features</p>
+      <div class="code">
+        </div>
+      <code># *args and **kwargs
+def flexible_function(*args, **kwargs):
+    print(f"Args: {args}")
+    print(f"Kwargs: {kwargs}")
+
+# Decorator
+def my_decorator(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")</code>
+    <ul>
+      <li>Function annotations</li>
+      <li>Recursive functions</li>
+      <li>Generator functions</li>
+      <li>Closures</li>
+      <li>Partial functions</li>
+    </ul>
+
+
+    </section>
+    <section class="main-section" id="object_oriented_programming">
+      <header >Object Oriented Programming</header>
+      <p>Python is a multi-paradigm programming language that fully supports object-oriented programming (OOP). OOP in Python provides a structured way to organize code into classes and objects.</p>
+      <p>Basic class definition and usage:</p>
+      <div class="code">
+      <code>class Dog:
+    # Class attribute
+    species = "Canis familiaris"
+    
+    # Constructor
+    def __init__(self, name, age):
+        self.name = name  # Instance attribute
+        self.age = age
+    
+    # Instance method
+    def bark(self):
+        return f"{self.name} says Woof!"
+    
+    # String representation
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+
+# Creating objects
+dog1 = Dog("Rex", 3)
+dog2 = Dog("Buddy", 5)
+
+print(dog1.bark())
+print(dog2)</code>
+      </div>
+      <p>Inheritance and polymorphism</p>
+      <div class="code">
+      <code>class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        pass
+
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} says Meow!"
+
+class Duck(Animal):
+    def speak(self):
+        return f"{self.name} says Quack!"
+
+# Using polymorphism
+animals = [Cat("Whiskers"), Duck("Donald")]
+for animal in animals:
+    print(animal.speak())</code>
+    </div>
+    </section>
+    <section class="main-section" id="modules_and_packages">
+      <header>Modules and Packages</header>
+        <p>Python's modular approach allows you to organize code into modules and packages. This helps in maintaining code and managing dependencies.</p>
+        <p>Working with modules:</p>
+        <div class="code">
+        <code># Importing modules
+import math
+from datetime import datetime
+from os import path as os_path
+
+# Creating a module (save as mymodule.py)
+def greet(name):
+    return f"Hello, {name}!"
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+# Using the module
+import mymodule
+print(mymodule.greet("Alice"))</code>
+      </div>
+      <p>Creating and using packages</p>
+      <div class="code">
+      <code># Importing modules
+import math
+from datetime import datetime
+from os import path as os_path
+
+# Creating a module (save as mymodule.py)
+def greet(name):
+    return f"Hello, {name}!"
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+# Using the module
+import mymodule
+print(mymodule.greet("Alice"))</code>
+    </div>
+    </section>
+    
+  </main>
+</body>
+</html>
+
+

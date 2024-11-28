@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    scroll-behavior:smooth;
 }
 
 :root {
@@ -13,7 +14,6 @@
 
 body {
     font-family: sans-serif;
-    
 }
 
 nav {
@@ -26,6 +26,7 @@ nav {
     position: fixed;
     top: 0;
     overflow: hidden;
+    z-index: 1;
 }
 
 nav ul {
@@ -56,10 +57,11 @@ a {
 }
 
 .welcome h1 {
-    font-size: 50px;
+    font-size: 60px;
     font-family: 'Space Mono', monospace;
     color: var(--background-color);
-    text-shadow: 2px 2px 8px black;
+    text-shadow: 2px 2px 4px black;
+    text-align: center;
 }
 
 .welcome p {
@@ -67,3 +69,153 @@ a {
     color: var(--background-color);
 }
 
+.projects h2 {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--primary-color);
+}
+.projects {
+    width: 100vw;
+}
+
+img {
+    width: 100%;
+    height: 250px;
+    border-radius: 20px 20px 0 0;
+    object-fit: cover;
+}
+
+.project-title {
+    color: var(--text-color);
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    width: 200px;
+}
+
+.project-tile {
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px var(--secondary-color);
+    width: 425px;
+    transition: transform 1s ease;
+}
+
+.project-tile:hover {
+    transform: scale(1.05);
+}
+.projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-size: 17px;
+    margin: 50px auto;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+button:hover, button:focus {
+    background-color: var(--secondary-color);
+}
+
+section.contacts {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    width: 100vw;
+    height: auto;
+    color: var(--background-color);
+}
+
+.contacts-heading {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.contacts-heading h2 {
+    padding-bottom: 5px;
+}
+
+.contacts-list > a {
+    border: 2px solid var(--background-color);
+    width: 170px;
+    height: 50px;
+    border-radius: 15px;
+    display: block;
+    align-content: center;
+    text-align: center;
+    font-weight:400;
+}
+
+.contacts-list a:hover {
+    background-color: #f4f4f450;
+
+}
+.contacts-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 50px 20px 80px 20px;
+}
+
+footer {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    font-size: 18px;
+    height: 125px;
+    text-align: center;
+    align-content: center;
+    font-weight:100;
+}
+
+footer p:nth-of-type(2){
+    margin-top: 10px;
+}
+
+footer a {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 750px) {
+    nav {
+        height: auto;
+        justify-content: center;
+    }
+    nav ul {
+        flex-direction: column;
+        margin: 0;
+        gap: 0;
+
+    }
+
+    nav ul li {
+        border-bottom: 1px solid var(--background-color);
+        width: 100vw;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    nav li:hover {
+        opacity: 50%;
+    }
+}
+
+@keyframes show-button {
+    0% {
+        background-color: var(--primary-color);
+    }
+    100% {
+        background-color: var(--secondary-color);
+    }
+}

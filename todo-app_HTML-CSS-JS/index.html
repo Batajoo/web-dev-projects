@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo App</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <main>
+            <section class="sidebar">
+                <h1>Categories</h1>
+                <ul>
+                    <li><i class="fas fa-list-alt"></i><span class="sidebar-title">All tasks</span></li>
+                    <li><i class="fas fa-briefcase"></i><span class="sidebar-title">Work</span></li>
+                    <li><i class="fas fa-user"></i><span class="sidebar-title">Personal</span></li>
+                    <li><i class="fas fa-heartbeat"></i><span class="sidebar-title">Health</span></li>
+                </ul>
+            </section>
+            <section class="main-content">
+                <header>
+                        <input type="text" placeholder="What's your next task?">
+                        <div class="input-button-container">
+                        <select id="add-category" name="add-category">
+                            <option>Work</option>
+                            <option>Personal</option>
+                            <option>Health</option>
+                        </select>
+                        <button id="add-task">Add Task</button>
+                        </div>
+                </header>
+                <section class="task-container">
+                    <div class="task-box">
+                        <label for="task-status"><input type="checkbox" id="task-status"><span class="task-data">data</span></label>
+                        <div class="action-section">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <i class="fa-solid fa-delete-left"></i>
+                        </div>
+                    </div>
+                </section>
+                <footer>
+                    <ul>
+                        <li><strong>Total Tasks</strong><span>2</span></li>
+                        <li><strong>Completed</strong><span>1</span></li>
+                        <li><strong>Pending</strong><span>1</span></li>
+                    </ul>
+                </footer>
+            </section>
+        </main>
+        <script src="./script.js"></script>
+    </body>
+</html>

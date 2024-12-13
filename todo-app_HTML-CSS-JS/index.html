@@ -10,9 +10,10 @@
     </head>
     <body>
         <main>
-            <section class="sidebar">
+            <section class="sidebar sidebar-off sidebar">
                 <h1>Categories</h1>
-                <ul>
+                <i class="fa-solid fa-bars bar-icon bar-icon-active"></i>
+                <ul class="categories-list">
                     <li><i class="fas fa-list-alt"></i><span class="sidebar-title">All tasks</span></li>
                     <li><i class="fas fa-briefcase"></i><span class="sidebar-title">Work</span></li>
                     <li><i class="fas fa-user"></i><span class="sidebar-title">Personal</span></li>
@@ -20,23 +21,23 @@
                 </ul>
             </section>
             <section class="main-content">
-                <header>
+                <div class="header">
                         <input type="text" placeholder="What's your next task?">
                         <div class="input-button-container">
-                        <select id="add-category" name="add-category">
+                        <select id="add-category" class="add-buttons" name="add-category">
                             <option>Work</option>
                             <option>Personal</option>
                             <option>Health</option>
                         </select>
-                        <button id="add-task">Add Task</button>
+                        <button id="add-task" class="add-buttons">Add Task</button>
                         </div>
-                </header>
+                </div>
                 <section class="task-container">
                     <div class="task-box">
                         <label for="task-status"><input type="checkbox" id="task-status"><span class="task-data">data</span></label>
                         <div class="action-section">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <i class="fa-solid fa-delete-left"></i>
+                            <i class="fa-solid fa-pen-to-square task-edit-icons"></i>
+                            <i class="fa-solid fa-delete-left task-edit-icons"></i>
                         </div>
                     </div>
                 </section>

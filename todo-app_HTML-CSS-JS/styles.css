@@ -41,12 +41,16 @@ ul {
     border-radius: 20px;
 }
 
+ 
 .sidebar li {
     background-color: var(--background-primary);
     color: var(--text-primary);
     padding: 15px 10px;
     margin: 10px 0;
     border-radius: 10px;
+    display:flex;
+    align-items: center;
+    gap:10px;
 }
 
 .sidebar li:hover, .sidebar li:focus {
@@ -58,7 +62,7 @@ ul {
     padding-left: 10px;
 }
 
-header {
+.header {
     height: 50px;
     display:flex;
     gap: 10px;
@@ -73,8 +77,13 @@ input[type="text"] {
     padding: 10px;
     color: var(--background-secondary);
     font-size: 15px;
+    color: var(--text-primary);
 }
 
+input[type="text"]:focus {
+    outline: none;
+    box-shadow:0px 1px 15px var(--text-primary);
+}
 div.input-button-container > *{  
     height: 100%;
     border-style: none;
@@ -84,6 +93,8 @@ div.input-button-container > *{
     background-color: var(--accent-color);
     border-radius: 10px;
     padding: 0 20px;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
 }
 
 footer {
@@ -119,9 +130,15 @@ footer li {
 .task-box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px 15px;
     background-color: var(--background-secondary);
     border-radius: 5px;
+    transition: margin-left 0.5s ease;
+}
+
+.task-box:hover, .task-box:focus {
+    margin-left: 20px;
 }
 
 input[type="checkbox"] {
@@ -133,6 +150,7 @@ input[type="checkbox"] {
     margin-right: 15px;
     cursor: pointer;
     position:relative;
+    transition: background-color 0.2s ease;
 }
 
 input[type="checkbox"]:checked {
@@ -146,4 +164,83 @@ input[type="checkbox"]:checked {
 
 .task-status {
     flex-grow: 1;
+}
+
+i.bar-icon {
+    font-size: 24px;
+}
+
+i.bar-icon-active {
+    display: none;
+}
+
+.task-edit-icons {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+.task-edit-icons:hover, .task-edit-icons:focus, .bar-icon:hover {
+    transform: scale(1.2);
+}
+
+
+.task-edit-icons:hover, .task-edit-icons:focus {
+    color: var(--accent-color);
+}
+
+#add-task:hover {
+    transform: scale(1.1);
+}
+@media (max-width: 770px) {
+    
+
+    /* .sidebar {
+        position: static;
+        height: auto;
+        overflow: visible;
+    } */
+
+    .sidebar-off {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+    }
+
+    .sidebar-on {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: auto;
+    }
+
+    i.bar-icon {
+        transition: transform 0.2s ease;
+    }
+
+    i.bar-icon-active {
+        display: block;
+    }
+
+    .categories-list {
+        display: none;
+    }
+
+    .header {
+        flex-direction: column;
+        height: 100px;
+    }
+
+    input[type="text"] {
+        flex-grow:0;
+    }
+
+    #add-task {
+        height: 50px;
+    }
+
 }

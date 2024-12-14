@@ -1,0 +1,110 @@
+:root {
+    --deep-space-dark: #0E1321;
+    --nebula-purple: #4A306D;
+    --cosmic-teal: #2DC5A5;
+    --starlight-blue: #5D7BA2;
+    --plasma-orange: #FF6B35;
+    --quantum-pink: #FF4B4B;
+    --event-horizon-gray: #1F2937;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  body {
+    font-family: 'Roboto Mono', monospace;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, var(--deep-space-dark) 0%, var(--event-horizon-gray) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main-box {
+    padding: 50px;
+    border: 2px solid var(--nebula-purple);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px var(--starlight-blue);
+    background-color: rrgba(30, 41, 59, 0.8);
+  }
+  
+  .main-box h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: var(--cosmic-teal);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .input-box {
+    width: 100%;
+    border-style: none;
+    font-size: 1.4rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--nebula-purple);
+    background-color: var(--deep-space-dark);
+    color: var(--cosmic-teal);
+    margin-bottom: 20px;
+  }
+  
+  .input-box:focus {
+    box-shadow: 0px 0px 10px var(--cosmic-teal);
+    outline: 2px solid var(--cosmic-teal);
+  }
+  
+  #convert-btn {
+    font-family: 'Orbitron', sans-serif;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, var(--nebula-purple), var(--cosmic-teal));
+    border-style: none;
+    margin-bottom: 30px;
+  }
+  
+  #convert-btn:hover {
+    background: linear-gradient(215deg, var(--nebula-purple), var(--cosmic-teal));
+    transform: scale(1.05);
+  }
+  
+  .output-box {
+    border: 2px solid var(--starlight-blue);
+    width: 100%;
+    padding: 20px;
+    font-size: 2.8rem;
+    color: var(--cosmic-teal);
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(74, 48, 109, 0.3);
+  
+  }
+  
+  .empty-input {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    animation: no-answer 2s ease infinite;
+  }
+  
+  @keyframes no-answer {
+    50% {
+      box-shadow: 0px 0px 20px var(--quantum-pink);
+      border-color: var(--quantum-pink);
+      transform: scale(1.05);
+      color: var(--quantum-pink);
+    }
+    0%, 100% {
+      transform: scale(1);
+    }
+  }
+  

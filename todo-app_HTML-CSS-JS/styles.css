@@ -170,10 +170,6 @@ i.bar-icon {
     font-size: 24px;
 }
 
-i.bar-icon-active {
-    display: none;
-}
-
 .task-edit-icons {
     font-size: 20px;
     transition: transform 0.2s ease;
@@ -220,14 +216,24 @@ i.bar-icon-active {
 
     i.bar-icon {
         transition: transform 0.2s ease;
-    }
-
-    i.bar-icon-active {
         display: block;
     }
 
-    .categories-list {
+    i.bar-icon-unactive {
         display: none;
+    }
+
+    .categories-list {
+        display: block;
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    .categories-list-unactive{
+        display:none;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: transform 10s ease, opacity 10s ease; 
     }
 
     .header {
@@ -241,6 +247,10 @@ i.bar-icon-active {
 
     #add-task {
         height: 50px;
+    }
+
+    .sidebar ul {
+        width: 100%;
     }
 
 }

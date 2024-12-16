@@ -68,7 +68,7 @@ ul {
     gap: 10px;
 }
 
-input[type="text"] {
+.input-box-todo {
     border-style: none;
     border: 2px solid var(--accent-color);
     background-color: var(--background-primary);
@@ -80,10 +80,32 @@ input[type="text"] {
     color: var(--text-primary);
 }
 
-input[type="text"]:focus {
+.input-box-todo:focus {
     outline: none;
     box-shadow:0px 1px 15px var(--text-primary);
 }
+
+.empty-input-box-alert {
+    box-shadow:0px 1px 15px var(--error-color);
+    border: 2px solid var(--error-color);
+}
+
+.empty-input-box-alert:focus {
+    box-shadow:0px 1px 15px var(--error-color);
+    animation: empty-error-animation 2s infinite ease;
+}
+
+
+@keyframes empty-error-animation {
+    50% {
+        box-shadow:0px 1px 15px var(--error-color);
+    }
+
+    100%, 0% {
+        box-shadow:0px 1px 30px var(--error-color);
+    }
+}
+
 div.input-button-container > *{  
     height: 100%;
     border-style: none;
@@ -244,7 +266,7 @@ i.bar-icon {
         height: 100px;
     }
 
-    input[type="text"] {
+    .input-box-todo {
         flex-grow:0;
     }
 

@@ -1,20 +1,46 @@
 const todoInputBox = document.getElementById("todo-text");
 const addTaskButton = document.getElementById("add-task");
 const todoListContainer = document.getElementById("todo-container");
+const categoriesListSelect = document.getElementById("add-category");
+let numberOfTodos = 0;
 
+const todoListData = [];
+
+// add button functionality 
 const addTodoToList = ()=>{
-    const todoText = todoInputBox.value;
-    todoListContainer.innerHTML += `
-    <div class="task-box">
-        <label for="task-status"><input type="checkbox" id="task-status"><span class="task-data">${todoText}</span></label>
-        <div class="action-section">
-            <i class="fa-solid fa-pen-to-square task-edit-icons"></i>
-            <i class="fa-solid fa-delete-left task-edit-icons"></i>
+    if (/^\s*$/.test(todoInputBox.value)){
+        todoInputBox.classList.add("empty-input-box-alert");
+        return;
+    
+    } else {
+        todoInputBox.classList.remove("empty-input-box-alert");
+        const todoText = todoInputBox.value;
+        const categoryType = categoriesListSelect.value;
+        todoListContainer.innerHTML += `
+        <div class="task-box" id="task-no-${numberOfTodos+1}">
+            <label for="task-status"><input type="checkbox" id="task-status"><span class="task-data">${todoText}</span></label>
+            <div class="action-section">
+                <i class="fa-solid fa-pen-to-square task-edit-icons"></i>
+                <i class="fa-solid fa-delete-left task-edit-icons"></i>
+            </div>
         </div>
-    </div>
-    `;
+        `;
+        numberOfTodos++;
+        todoListData.push({
+            category: categoryType,
+            todo: todoText
+        });
+        localStorage.setItem('todoList', todoListData);
+    }
 };
+
 addTaskButton.addEventListener("click", addTodoToList);
+
+todoInputBox.addEventListener("keypress",(e)=>{
+    if(e.key === "Enter"){
+        addTodoToList();
+    }
+});
 
 
 // barIconButton 
@@ -30,6 +56,7 @@ const sideBarAnimation = () => {
     sideBar.classList.toggle("sidebar-on");
     barIconButton.classList.toggle("bar-icon-unactive");
 }
+
 barIconButton.addEventListener("click", (e)=>{
     if(!sideBarActive){
         sideBarAnimation();

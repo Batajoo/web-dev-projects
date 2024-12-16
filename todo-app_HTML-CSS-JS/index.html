@@ -22,7 +22,7 @@
             </section>
             <section class="main-content">
                 <div class="header">
-                        <input type="text" placeholder="What's your next task?" id="todo-text">
+                        <input class="input-box-todo" type="text" placeholder="What's your next task?" id="todo-text" required>
                         <div class="input-button-container">
                         <select id="add-category" class="add-buttons" name="add-category">
                             <option>Work</option>
@@ -33,13 +33,7 @@
                         </div>
                 </div>
                 <section class="task-container" id="todo-container">
-                    <div class="task-box">
-                        <label for="task-status"><input type="checkbox" id="task-status"><span class="task-data">data</span></label>
-                        <div class="action-section">
-                            <i class="fa-solid fa-pen-to-square task-edit-icons"></i>
-                            <i class="fa-solid fa-delete-left task-edit-icons"></i>
-                        </div>
-                    </div>
+
                 </section>
                 <footer>
                     <ul>

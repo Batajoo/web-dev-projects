@@ -168,7 +168,9 @@ input[type="checkbox"]:checked {
 
 i.bar-icon {
     font-size: 24px;
+    display: none;
 }
+
 
 .task-edit-icons {
     font-size: 20px;

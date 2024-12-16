@@ -135,6 +135,7 @@ footer li {
     background-color: var(--background-secondary);
     border-radius: 5px;
     transition: margin-left 0.5s ease;
+    margin-bottom: 10px;
 }
 
 .task-box:hover, .task-box:focus {

@@ -3,12 +3,14 @@ const addTaskButton = document.getElementById("add-task");
 const todoListContainer = document.getElementById("todo-container");
 const categoriesListSelect = document.getElementById("add-category");
 const totalTask = document.getElementById("total-task");
+const completedTask = document.getElementById("completed-task");
+const pendingTask = document.getElementById("pending-task");
 let todoListData = [];
-
+let recentCategory = document.getElementById("all-tasks");
+//display todoList category 
 
 //display todolist
 const displayTodoList = () => {
-    console.log(localStorage.getItem('todoList'));
     todoListContainer.innerHTML = "";
     todoListData = JSON.parse(localStorage.getItem('todoList'));
     numberOfTodos = todoListData.length;
@@ -24,6 +26,9 @@ const displayTodoList = () => {
         `;
     });
     totalTask.textContent = todoListData.length;
+    const completedTaskNo = todoListData.filter((todo)=> todo.completed).length;
+    completedTask.textContent = completedTaskNo;
+    pendingTask.textContent = todoListData.length - completedTaskNo;
 };
 
 window.onload = displayTodoList;
@@ -36,7 +41,7 @@ const addTodoToList = ()=>{
     } else {
         todoInputBox.classList.remove("empty-input-box-alert");
         const todoText = todoInputBox.value;
-        const categoryType = categoriesListSelect.value;
+        const categoryType = categoriesListSelect.value.toLowerCase();
         numberOfTodos++;
         todoListData.push({
             category: categoryType,
@@ -71,7 +76,6 @@ const removeTodo = (e) => {
 const editTodoBoxChange = (e) => {
     const targetParentElement = e.target.closest('.task-box');
     const targetId = targetParentElement.id.slice(-1);
-    console.log(targetId);
     const editTemplate = `<label for="task-status">
                             <span class="task-data">
                                 <input type="text" class="edit-input-box" value="${todoListData[targetId - 1].todo}">
@@ -134,5 +138,36 @@ document.addEventListener("click",(e)=>{
     if(sideBarActive && e.target !== barIconButton && !sideBar.contains(e.target)) {
         sideBarAnimation();
         sideBarActive = false;
+    }
+})
+
+categoriesList.addEventListener("click", (e)=>{
+    if(e.target){
+        if(recentCategory.classList.contains("sidebar-active")){
+            recentCategory.classList.remove("sidebar-active");
+        }
+        if(e.target.id === "all-tasks"){
+            recentCategory = "all-tasks"
+            displayTodoList();
+        } else {
+            const categoryType = e.target.id;
+            recentCategory = categoryType;
+            console.log(categoryType);
+            console.log(recentCategory);
+            categoryType.classList.add("sidebar-active");
+            const categoryTypeDataList = todoListData.filter((todoData)=> todoData.category === categoryType);
+            todoListContainer.innerHTML = "";
+            categoryTypeDataList.forEach( (todoData, index) => {
+                todoListContainer.innerHTML += `
+                <div class="task-box" id="task-no-${index + 1}">
+                    <label for="task-status"><input type="checkbox" id="task-status"><span class="task-data">${todoData.todo}</span></label>
+                    <div class="action-section">
+                        <i class="fa-solid fa-pen-to-square task-edit-icons" id="edit-button"></i>
+                        <i class="fa-solid fa-delete-left task-edit-icons" id="remove-button"></i>
+                    </div>
+                </div>
+                `;
+            });
+        }
     }
 })

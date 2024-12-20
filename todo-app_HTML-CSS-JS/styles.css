@@ -180,6 +180,19 @@ input[type="checkbox"]:checked {
     background-color: var(--accent-color);
 }
 
+.edit-input-box {
+    background-color: var(--background-secondary);
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+    top: 5px;
+    border: 0;
+}
+
+.edit-input-box:focus {
+    outline: none;
+}
 .task-data {
     position: relative;
     top: -5px;

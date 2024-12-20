@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Phone Validator</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>PHONE VALIDATOR</h1>
+      <p> <i class="fas fa-shield-alt"></i> SECURE VERIFICATION SYSTEM</p>
+      <div class="input-group">
+        <i class="fas fa-phone input-icon"></i>
+        <input type="text" placeholder="Enter phone number..." id="user-input">
+      </div>
+      <div class="button-list">
+        <button id="check-btn" class="btn check-btn"><i class="fas fa-check"></i> Validate</button>
+        <button id="clear-btn" class="btn clear-btn"><i class="fas fa-times"></i> Clear</button>
+      </div>
+      <div class="result-container" id="results-div">
+        
+      </div>
+      <div class="details">
+        <label><i class="fas fa-info-circle"></i> ACCEPTED FORMATS:</label>
+        <ul>
+          <li>1 555-555-5555</li>
+          <li>(555) 555-5555</li>
+          <li>5555555555</li>
+          <li>1 (555) 555-5555</li>
+        </ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

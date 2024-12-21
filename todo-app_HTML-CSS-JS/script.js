@@ -5,19 +5,25 @@ const categoriesListSelect = document.getElementById("add-category");
 const totalTask = document.getElementById("total-task");
 const completedTask = document.getElementById("completed-task");
 const pendingTask = document.getElementById("pending-task");
+const taskStatusBox = document.getElementById("task-status");
+
 let todoListData = [];
 let recentCategory = document.getElementById("all-tasks");
 //display todoList category 
 
+
 //display todolist
 const displayTodoList = () => {
     todoListContainer.innerHTML = "";
+    if (!localStorage.getItem('todoList')){
+        localStorage.setItem('todoList', JSON.parse([]));
+    }
     todoListData = JSON.parse(localStorage.getItem('todoList'));
     numberOfTodos = todoListData.length;
     todoListData.forEach( (todoData, index) => {
         todoListContainer.innerHTML += `
         <div class="task-box" id="task-no-${index + 1}">
-            <label for="task-status"><input type="checkbox" id="task-status"><span class="task-data">${todoData.todo}</span></label>
+            <label for="task-status"><input type="checkbox" id="task-status" ${todoData.completed ? "checked": ""}><span class="task-data ${todoData.completed ? 'task-completed': ''}">${todoData.todo}</span></label>
             <div class="action-section">
                 <i class="fa-solid fa-pen-to-square task-edit-icons" id="edit-button"></i>
                 <i class="fa-solid fa-delete-left task-edit-icons" id="remove-button"></i>
@@ -42,7 +48,6 @@ const addTodoToList = ()=>{
         todoInputBox.classList.remove("empty-input-box-alert");
         const todoText = todoInputBox.value;
         const categoryType = categoriesListSelect.value.toLowerCase();
-        numberOfTodos++;
         todoListData.push({
             category: categoryType,
             todo: todoText,
@@ -142,19 +147,19 @@ document.addEventListener("click",(e)=>{
 })
 
 categoriesList.addEventListener("click", (e)=>{
-    if(e.target){
-        if(recentCategory.classList.contains("sidebar-active")){
+    if(e.target.classList && e.target.classList.contains("sidebar-li")){
+        if(recentCategory && recentCategory.classList && recentCategory.classList.contains("sidebar-active")){
             recentCategory.classList.remove("sidebar-active");
         }
         if(e.target.id === "all-tasks"){
-            recentCategory = "all-tasks"
+            recentCategory = document.getElementById("all-tasks");
+            recentCategory.classList.add("sidebar-active");
             displayTodoList();
         } else {
             const categoryType = e.target.id;
-            recentCategory = categoryType;
-            console.log(categoryType);
-            console.log(recentCategory);
-            categoryType.classList.add("sidebar-active");
+            recentCategory = document.getElementById(categoryType);
+            recentCategory.classList.add("sidebar-active");
+
             const categoryTypeDataList = todoListData.filter((todoData)=> todoData.category === categoryType);
             todoListContainer.innerHTML = "";
             categoryTypeDataList.forEach( (todoData, index) => {
@@ -168,6 +173,35 @@ categoriesList.addEventListener("click", (e)=>{
                 </div>
                 `;
             });
+            totalTask.textContent = categoryTypeDataList.length;
+            const completedTaskNo = categoryTypeDataList.filter((todo)=> todo.completed).length;
+            completedTask.textContent = completedTaskNo;
+            pendingTask.textContent = categoryTypeDataList.length - completedTaskNo;
         }
     }
 })
+
+//completed todo 
+const completeTodoTask = (e) => {
+    const targetElement = e.target;
+    const parentElement = e.target.parentElement.parentElement;
+    const todoId = parseInt(parentElement.id.slice(-1)) - 1;
+    todoListData[todoId].completed = targetElement.checked;
+    localStorage.removeItem("todoList");
+    localStorage.setItem("todoList", JSON.stringify(todoListData));
+    if(targetElement.checked){
+        parentElement.querySelector("span").classList.add("task-completed");
+        completedTask.textContent = parseInt(completedTask.textContent) + 1
+        pendingTask.textContent = parseInt(pendingTask.textContent) - 1;
+    } else {
+        parentElement.querySelector("span").classList.remove("task-completed");
+        completedTask.textContent = parseInt(completedTask.textContent) - 1
+        pendingTask.textContent = parseInt(pendingTask.textContent) + 1;
+    }
+}   
+
+todoListContainer.addEventListener("click", (e)=>{
+    if (e.target.id == "task-status"){
+        completeTodoTask(e);
+    }
+});

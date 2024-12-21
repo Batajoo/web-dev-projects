@@ -185,6 +185,11 @@ input[type="checkbox"]:checked {
     background-color: var(--accent-color);
 }
 
+.task-completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
 .edit-input-box {
     background-color: var(--background-secondary);
     color: var(--accent-color);
